@@ -13,7 +13,7 @@ server:
 
 notarization:
   max-sent-data: 4096
-  max-recv-data: 16384
+  max-recv-data: 65536
 
 tls:
   enabled: true

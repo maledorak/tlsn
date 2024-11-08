@@ -14,7 +14,8 @@ use tlsn_formats::http::{DefaultHttpCommitter, HttpCommit, HttpTranscript};
 use tlsn_prover::{Prover, ProverConfig};
 
 // Setting of the application server
-const SERVER_DOMAIN: &str = "example.com";
+// const SERVER_DOMAIN: &str = "example.com";
+const SERVER_DOMAIN: &str = "rekt.news";
 const USER_AGENT: &str = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36";
 
 #[tokio::main]
@@ -35,7 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 // be preprocessed prior to the connection. Reducing these limits will improve
                 // performance.
                 .max_sent_data(1024)
-                .max_recv_data(4096)
+                .max_recv_data(65536)
                 .build()?,
         )
         .build()?;
@@ -65,7 +66,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Build a simple HTTP request with common headers
     let request = Request::builder()
-        .uri("/")
+        .uri("/truth-terminal-gone-wild/")
         .header("Host", SERVER_DOMAIN)
         .header("Accept", "*/*")
         // Using "identity" instructs the Server not to use compression for its HTTP response.

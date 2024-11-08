@@ -10,7 +10,7 @@ pub const NOTARY_PRIVATE_KEY: &[u8] = &[1u8; 32];
 // Maximum number of bytes that can be sent from prover to server
 const MAX_SENT_DATA: usize = 1 << 12;
 // Maximum number of bytes that can be received by prover from server
-const MAX_RECV_DATA: usize = 1 << 14;
+const MAX_RECV_DATA: usize = 1 << 16;
 
 /// Runs a simple Notary with the provided connection to the Prover.
 pub async fn run_notary<T: AsyncWrite + AsyncRead + Send + Unpin + 'static>(conn: T) {
